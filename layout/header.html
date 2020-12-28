@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <!-- =====  BASIC PAGE NEEDS  ===== -->
+  <meta charset="utf-8">
+  <title>Web Bán Hàng - Nhóm 4</title>
+  <!-- =====  MOBILE SPECIFICATION  ===== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- =====  CSS  ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../frontend/css/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- =====  HEADER START  ===== -->
+    <header id="header">
+      <div class="header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12">
+              <div class="header-top-left">
+                <div class="contact"><a href="../tel:{{ $phone_site }}"><i class="fas fa-phone"></i> Gọi Ngay !</a> <span>0359003130</span> || 
+                  <a target="_blank" href="../{{$link_map}}">
+                    <i class="fas fa-map-marker-alt"></i> Địa Chỉ :</a> <span>TRƯỜNG CAO ĐẲNG CÔNG NGHỆ THỦ ĐỨC.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <div class="main-search mt_40">
+                <form action="{{ url('search/')}}" method="get">
+                  <input required id="search-input" name="search" placeholder="Tìm Kiếm" class="form-control input-lg" autocomplete="off" type="text">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+                </form>
+              
+              </span> </div>
+            </div>
+            <div class="navbar-header col-xs-6 col-sm-4"> <a class="navbar-brand" href=""> <img width="229px" height="40px" alt="Logo" 
+            src="../logo.png"> </a> </div>
+            <div class="col-xs-6 col-sm-4 shopcart">
+              <a href="../{{ url('cart/show')}}">
+              <div id="cart" class="btn-group btn-block mtb_40">
+                <button type="button" class="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
+                  <span id="shippingcart">Giỏ Hàng</span><span id="cart-total">(10) Sản Phẩm </span> </button>
+              </div></a>
+            </div>
+          </div>
+        </div>
+        <nav class="navbar">
+          <div class="container">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse"> 
+              <span class="i-bar"><i class="fa fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse js-navbar-collapse" style="left: 20px;height: 1px;">
+              <ul id="menu" class="nav navbar-nav">
+                <li> <a href="header.html">Trang Chủ</a></li>
+                <li class="dropdown"> <a href="../#" class="dropdown-toggle" data-toggle="dropdown">Trang </a>
+                  <ul class="dropdown-menu">
+                    <li> <a href="detail.html">Detail</a></li>
+                    <li> <a href="category.html">Category</a></li>
+                    <li> <a href="cart.html">Cart</a></li>
+                  </ul>
+                </li>
+                <li style="float:right" class="dropdown"> <a href="../" class="dropdown-toggle" data-toggle="dropdown">Tài Khoản </a>
+                  <ul class="dropdown-menu">
+                    <li> <a href="../{{ url('login')}}">Đăng Nhập</a></li>
+                    <li> <a href="../{{ url('register')}}">Đăng Ký</a></li>
+                  </ul>
+                </li> 
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- =====  HEADER END  ===== -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- =====  PRODUCT TAB  ===== -->
+          <div id="product-tab" class="">
+            <div class="heading-part mb_10 ">
+              <h2 class="main_title">Sản Phẩm Hot</h2>
+            </div>
+            <div class="tab-content clearfix box">
+              <div class="tab-pane active" id="nArrivals">
+                <div class="nArrivals owl-carousel">
+                  <!-- San Pham -->
+                  <div class="product col-md-4 col-lg-3 col-sm-6 col-xs-12">
+                      <div class="item mb_20 boder">
+                          <p class="new">Hot</p>
+                          <a  href="{{ url('detail/{{$item->pro_id}}/{{str_slug($item->name)}}.html">
+                            <img class="mt_10" width="100%" src="iphone-xr-128gb-red-400x460.png" class="img-responsive"></a>
+                          <div class="caption product-detail text-center">
+                          <marquee>
+                            <h6 data-name="product_name" class="product-name"><a href="{{ url('detail/{{$item->pro_id}}/{{str_slug($item->name)}}.html" title="">{{$item->name}}</a></h6>
+                          </marquee>
+                          <span class="price"><span class="amount"><span class="currencySymbol"></span><s>19,000,000 đ</s></span> <br>
+                          <span class="price" style="color:red"><span class="amount"><span class="currencySymbol"></span>18,000,000 đ</span>                                              
+                          <a href="{{url('cart/add/'.$item->pro_id)}}" style="margin-bottom: -2px!important;" class="btn form-control"><i class="fas fa-cart-plus"></i> Mua Ngay</a>
+                        </div>
+                      </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- =====  PRODUCT TAB  END ===== -->
+          
+        </div>
+        <div class="col-md-12">
+          <!-- =====  PRODUCT TAB  ===== -->
+          <div id="product-tab" class="">
+            <div class="heading-part mb_10 ">
+              <h2 class="main_title">Sản Phẩm Hot</h2>
+            </div>
+            <div class="tab-content clearfix box">
+              <div class="tab-pane active" id="nArrivals">
+                <div class="nArrivals owl-carousel">
+                  <!-- San Pham -->
+                  <div class="product col-md-4 col-lg-3 col-sm-6 col-xs-12">
+                      <div class="item mb_20 boder">
+                          <p class="new">Hot</p>
+                          <a  href="{{ url('detail/{{$item->pro_id}}/{{str_slug($item->name)}}.html">
+                            <img class="mt_10" width="100%" src="iphone-xr-128gb-red-400x460.png" class="img-responsive"></a>
+                          <div class="caption product-detail text-center">
+                          <marquee>
+                            <h6 data-name="product_name" class="product-name"><a href="{{ url('detail/{{$item->pro_id}}/{{str_slug($item->name)}}.html" title="">{{$item->name}}</a></h6>
+                          </marquee>
+                          <span class="price"><span class="amount"><span class="currencySymbol"></span><s>19,000,000 đ</s></span> <br>
+                          <span class="price" style="color:red"><span class="amount"><span class="currencySymbol"></span>18,000,000 đ</span>                                              
+                          <a href="{{url('cart/add/'.$item->pro_id)}}" style="margin-bottom: -2px!important;" class="btn form-control"><i class="fas fa-cart-plus"></i> Mua Ngay</a>
+                        </div>
+                      </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- =====  PRODUCT TAB  END ===== -->
+          
+        </div>
+      </div>
+    </div>  
+    <!-- =====  FOOTER START ===== -->
+    <div class="footer pt_60 mt_30">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 footer-block">
+            <h6 class="footer-title ptb_20 mb_20">Thông Tin</h6>
+            <ul>
+              <li><a href="{{ asset('home') }}">{{$site_name}}</a></li>
+              <li><a href="{{ asset('contact') }}">Liên Hệ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-block">
+            <h6 class="footer-title ptb_20 mb_20">Danh Mục</h6>
+            <ul>
+              <li><a href="{{ asset('manufacture/'.$item->manu_id) }}">{{$item->manu_name}}</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-block">
+            <h6 class="footer-title ptb_20 mb_20">Tác Giả</h6>
+            <ul>
+                <li><a>{{$item->name}}</a></li>
+                <li><a>- {{$item->masv}}</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-block">
+            <h6 class="footer-title ptb_20 mb_20 mb_20">Liên Hệ</h6>
+            <ul>
+              <li>
+              Địa Chỉ :<a target="_blank" href="{{$link_map}}"><span>{{$address_site}}</a></span>
+              </li> 
+              <li>
+              <a href="tel:{{$phone_site}}">{{$phone_site}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="text-center">&copy; Sản Phẩm Thuộc Về <a href="{{ url('home') }}" title="">Nhóm 4</a></div>
+        </div>
+      </div>
+    </div>
+    <!-- =====  FOOTER END  ===== -->
+</div>
+<a id="scrollup"><i class="far fa-arrow-alt-circle-up"></i></i></a>
+<script src="../frontend/js/jQuery_v3.1.1.min.js"></script>
+<script src="../frontend/js/bootstrap.min.js"></script>
+<script src="../frontend/js/custom.js"></script>
+</body>
+</html>

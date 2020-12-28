@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <!-- =====  BASIC PAGE NEEDS  ===== -->
+  <meta charset="utf-8">
+  <title>Web Bán Hàng - Nhóm 4</title>
+  <!-- =====  MOBILE SPECIFICATION  ===== -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- =====  CSS  ===== -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="../frontend/css/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <!-- =====  HEADER START  ===== -->
+    <header id="header">
+      <div class="header-top">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-12">
+              <div class="header-top-left">
+                <div class="contact"><a href="../tel:{{ $phone_site }}"><i class="fas fa-phone"></i> Gọi Ngay !</a> <span>0359003130</span> || 
+                  <a target="_blank" href="../{{$link_map}}">
+                    <i class="fas fa-map-marker-alt"></i> Địa Chỉ :</a> <span>TRƯỜNG CAO ĐẲNG CÔNG NGHỆ THỦ ĐỨC.</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="header">
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-12 col-sm-4">
+              <div class="main-search mt_40">
+                <form action="{{ url('search/')}}" method="get">
+                  <input required id="search-input" name="search" placeholder="Tìm Kiếm" class="form-control input-lg" autocomplete="off" type="text">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+                </form>
+              
+              </span> </div>
+            </div>
+            <div class="navbar-header col-xs-6 col-sm-4"> <a class="navbar-brand" href=""> <img width="229px" height="40px" alt="Logo" 
+            src="../logo.png"> </a> </div>
+            <div class="col-xs-6 col-sm-4 shopcart">
+              <a href="../{{ url('cart/show')}}">
+              <div id="cart" class="btn-group btn-block mtb_40">
+                <button type="button" class="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
+                  <span id="shippingcart">Giỏ Hàng</span><span id="cart-total">(10) Sản Phẩm </span> </button>
+              </div></a>
+            </div>
+          </div>
+        </div>
+        <nav class="navbar">
+          <div class="container">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse"> 
+              <span class="i-bar"><i class="fa fa-bars"></i></span>
+            </button>
+            <div class="collapse navbar-collapse js-navbar-collapse" style="left: 20px;height: 1px;">
+              <ul id="menu" class="nav navbar-nav">
+                <li> <a href="header.html">Trang Chủ</a></li>
+                <li class="dropdown"> <a href="../#" class="dropdown-toggle" data-toggle="dropdown">Trang </a>
+                  <ul class="dropdown-menu">
+                    <li> <a href="detail.html">Detail</a></li>
+                    <li> <a href="category.html">Category</a></li>
+                    <li> <a href="cart.html">Cart</a></li>
+                  </ul>
+                </li>
+                <li style="float:right" class="dropdown"> <a href="../" class="dropdown-toggle" data-toggle="dropdown">Tài Khoản </a>
+                  <ul class="dropdown-menu">
+                    <li> <a href="../{{ url('login')}}">Đăng Nhập</a></li>
+                    <li> <a href="../{{ url('register')}}">Đăng Ký</a></li>
+                  </ul>
+                </li> 
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- =====  HEADER END  ===== -->
+    <div class="container">
+      <div class="row ">
+         <!-- Left -->
+         <div id="column-left" class="col-sm-4 col-lg-3 hidden-xs">
+            <div id="category-menu" class="navbar collapse in mb_40" aria-expanded="true" role="button">
+               <div class="nav-responsive">
+                  <div class="heading-part">
+                     <h2 class="main_title">Danh Mục</h2>
+                  </div>
+                  <ul class="nav  main-navigation collapse in">
+                     <li><a href="http://localhost:8080/do-an-back-end-2/category/1">Điện Thoại</a></li>
+                     <li><a href="http://localhost:8080/do-an-back-end-2/category/2">Laptop</a></li>
+                     <li><a href="http://localhost:8080/do-an-back-end-2/category/3">Máy Tính Bảng</a></li>
+                     <li><a href="http://localhost:8080/do-an-back-end-2/category/4">Đồng Hồ</a></li>
+                     <li><a href="http://localhost:8080/do-an-back-end-2/category/5">Phụ Kiện</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="left-special left-sidebar-widget mb_50">
+               <div class="heading-part mb_10 ">
+                  <h2 class="main_title">Sản Phẩm Hot</h2>
+               </div>
+               <div id="left-special" class="owl-carousel">
+                  <ul class="row ">
+                     <li class="itemss product-layout-left mb_20">
+                        <div class="product-list col-xs-4">
+                           <a href="http://localhost:8080/do-an-back-end-2/detail/66/dien-thoai-oppo-reno-10x-zoom-edition.html"><img src="http://localhost:8080/do-an-back-end-2/lib/storage/app/image/oppo-reno-10x-zoom-edition-black-400x460.png" class="img-responsive"></a>
+                        </div>
+                        <div class="col-xs-8">
+                           <div class="caption product-detail">
+                              <h6 class="product-name"><a href="http://localhost:8080/do-an-back-end-2/detail/66/dien-thoai-oppo-reno-10x-zoom-edition.html">Điện thoại OPPO Reno 10x Zoom Edition</a></h6>
+                              <span class="price" style="color:red" ><span class="amount"><span class="currencySymbol"></span>20,990,000 đ</span><br><br>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="itemss product-layout-left mb_20">
+                        <div class="product-list col-xs-4">
+                           <a href="http://localhost:8080/do-an-back-end-2/detail/65/dien-thoai-samsung-galaxy-s10.html"><img src="http://localhost:8080/do-an-back-end-2/lib/storage/app/image/samsung-galaxy-s10-plus-512gb-ceramic-black-400x460.png" class="img-responsive"></a>
+                        </div>
+                        <div class="col-xs-8">
+                           <div class="caption product-detail">
+                              <h6 class="product-name"><a href="http://localhost:8080/do-an-back-end-2/detail/65/dien-thoai-samsung-galaxy-s10.html">Điện thoại Samsung Galaxy S10+</a></h6>
+                              <span class="price"><span class="amount"><span class="currencySymbol"></span><s>28,990,000 đ</s></span> <br>
+                              <span class="price" style="color:red"><span class="amount"><span class="currencySymbol"></span>22,000,000 đ</span>
+                           </div>
+                        </div>
+                     </li>
+                     <li class="itemss product-layout-left mb_20">
+                        <div class="product-list col-xs-4">
+                           <a href="http://localhost:8080/do-an-back-end-2/detail/64/dien-thoai-iphone-xs-max.html"><img src="http://localhost:8080/do-an-back-end-2/lib/storage/app/image/iphone-xs-max-gold-400x460.png" class="img-responsive"></a>
+                        </div>
+                        <div class="col-xs-8">
+                           <div class="caption product-detail">
+                              <h6 class="product-name"><a href="http://localhost:8080/do-an-back-end-2/detail/64/dien-thoai-iphone-xs-max.html">Điện thoại iPhone Xs Max</a></h6>
+                              <span class="price"><span class="amount"><span class="currencySymbol"></span><s>29,990,000 đ</s></span> <br>
+                              <span class="price" style="color:red"><span class="amount"><span class="currencySymbol"></span>29,000,000 đ</span>
+                           </div>
+                        </div>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <!-- End Left -->
+         <!-- Product-Detail -->
+         <!-- Category -->
+         <div class="col-sm-8 col-lg-9 mtb_5">
+            <div class="row">
+               <div class="col-md-12">
+                  <div class="heading-part mb_10 ">
+                     <h2 class="main_title">Điện Thoại  - Apple</h2>
+                  </div>
+               </div>
+            </div>
+            <div class="row">
+               <div class="product-layout  product-grid  col-md-3 col-sm-6 col-xs-6 ">
+                  <div class="items mb_20 boder">
+                     <p class="hot">HOT</p>
+                     <a  href="http://localhost:8080/do-an-back-end-2/detail/64/dien-thoai-iphone-xs-max.html">
+                     <img class="mt_10" width="100%" src="http://localhost:8080/do-an-back-end-2/lib/storage/app/image/iphone-xs-max-gold-400x460.png" class="img-responsive"></a>
+                     <div class="caption product-detail text-center">
+                        <marquee>
+                           <h6 data-name="product_name" class="product-name"><a href="http://localhost:8080/do-an-back-end-2/detail/64/dien-thoai-iphone-xs-max.html" title="">Điện thoại iPhone Xs Max</a></h6>
+                        </marquee>
+                        <span class="price"><span class="amount"><span class="currencySymbol"></span><s>29,990,000 đ</s></span> <br>
+                        <span class="price" style="color:red"><span class="amount"><span class="currencySymbol"></span>29,000,000 đ</span>
+                        <a href="http://localhost:8080/do-an-back-end-2/cart/add/64" style="margin-bottom: -2px!important;" class="btn form-control"><i class="fas fa-cart-plus"></i></a>
+                     </div>
+                  </div>
+               </div>
+               <div class="product-layout  product-grid  col-md-3 col-sm-6 col-xs-6 ">
+                  <div class="items mb_20 boder">
+                     <p class="hot">HOT</p>
+                     <a  href="http://localhost:8080/do-an-back-end-2/detail/10/dien-thoai-iphone-xs.html">
+                     <img class="mt_10" width="100%" src="http://localhost:8080/do-an-back-end-2/lib/storage/app/image/iphone-xs-gold-400x460.png" class="img-responsive"></a>
+                     <div class="caption product-detail text-center">
+                        <marquee>
+                           <h6 data-name="product_name" class="product-name"><a href="http://localhost:8080/do-an-back-end-2/detail/10/dien-thoai-iphone-xs.html" title="">Điện thoại iPhone Xs</a></h6>
+                        </marquee>
+                        <span class="price"><span class="amount"><span class="currencySymbol"></span><s>26,000,000 đ</s></span> <br>
+                        <span class="price" style="color:red"><span class="amount"><span class="currencySymbol"></span>25,000,000 đ</span>
+                        <a href="http://localhost:8080/do-an-back-end-2/cart/add/10" style="margin-bottom: -2px!important;" class="btn form-control"><i class="fas fa-cart-plus"></i></a>
+                     </div>
+                  </div>
+               </div>
+               <div class="product-layout  product-grid  col-md-3 col-sm-6 col-xs-6 ">
+                  <div class="items mb_20 boder">
+                     <a  href="http://localhost:8080/do-an-back-end-2/detail/9/dien-thoai-iphone-x.html">
+                     <img class="mt_10" width="100%" src="http://localhost:8080/do-an-back-end-2/lib/storage/app/image/iphone-x-64gb-1-400x460-1-400x460.png" class="img-responsive"></a>
+                     <div class="caption product-detail text-center">
+                        <marquee>
+                           <h6 data-name="product_name" class="product-name"><a href="http://localhost:8080/do-an-back-end-2/detail/9/dien-thoai-iphone-x.html" title="">Điện thoại iPhone X</a></h6>
+                        </marquee>
+                        <span class="price"><span class="amount"><span class="currencySymbol"></span><s>23,000,000 đ</s></span> <br>
+                        <span class="price" style="color:red"><span class="amount"><span class="currencySymbol"></span>19,000,000 đ</span>
+                        <a href="http://localhost:8080/do-an-back-end-2/cart/add/9" style="margin-bottom: -2px!important;" class="btn form-control"><i class="fas fa-cart-plus"></i></a>
+                     </div>
+                  </div>
+               </div>
+               <div class="product-layout  product-grid  col-md-3 col-sm-6 col-xs-6 ">
+                  <div class="items mb_20 boder">
+                     <p class="hot">HOT</p>
+                     <a  href="http://localhost:8080/do-an-back-end-2/detail/8/dien-thoai-iphone-xr.html">
+                     <img class="mt_10" width="100%" src="http://localhost:8080/do-an-back-end-2/lib/storage/app/image/iphone-xr-128gb-red-400x460.png" class="img-responsive"></a>
+                     <div class="caption product-detail text-center">
+                        <marquee>
+                           <h6 data-name="product_name" class="product-name"><a href="http://localhost:8080/do-an-back-end-2/detail/8/dien-thoai-iphone-xr.html" title="">Điện thoại iPhone Xr </a></h6>
+                        </marquee>
+                        <span class="price"><span class="amount"><span class="currencySymbol"></span><s>21,900,000 đ</s></span> <br>
+                        <span class="price" style="color:red"><span class="amount"><span class="currencySymbol"></span>20,000,000 đ</span>
+                        <a href="http://localhost:8080/do-an-back-end-2/cart/add/8" style="margin-bottom: -2px!important;" class="btn form-control"><i class="fas fa-cart-plus"></i></a>
+                     </div>
+                  </div>
+               </div>
+               <div class="product-layout  product-grid  col-md-3 col-sm-6 col-xs-6 ">
+                  <div class="items mb_20 boder">
+                     <p class="hot">HOT</p>
+                     <a  href="http://localhost:8080/do-an-back-end-2/detail/7/dien-thoai-iphone-8-plus-64gb.html">
+                     <img class="mt_10" width="100%" src="http://localhost:8080/do-an-back-end-2/lib/storage/app/image/iphone-8-plus-1-400x460.png" class="img-responsive"></a>
+                     <div class="caption product-detail text-center">
+                        <marquee>
+                           <h6 data-name="product_name" class="product-name"><a href="http://localhost:8080/do-an-back-end-2/detail/7/dien-thoai-iphone-8-plus-64gb.html" title="">Điện thoại iPhone 8 Plus 64GB</a></h6>
+                        </marquee>
+                        <span class="price"><span class="amount"><span class="currencySymbol"></span><s>19,990,000 đ</s></span> <br>
+                        <span class="price" style="color:red"><span class="amount"><span class="currencySymbol"></span>19,000,000 đ</span>
+                        <a href="http://localhost:8080/do-an-back-end-2/cart/add/7" style="margin-bottom: -2px!important;" class="btn form-control"><i class="fas fa-cart-plus"></i></a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <center>
+            </center>
+         </div>
+         <!-- End Category -->
+         <!-- End Product-Detail -->
+      </div>
+   </div>
+    <!-- =====  FOOTER START ===== -->
+    <div class="footer pt_60">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 footer-block">
+            <h6 class="footer-title ptb_20 mb_20">Thông Tin</h6>
+            <ul>
+              <li><a href="{{ asset('home') }}">{{$site_name}}</a></li>
+              <li><a href="{{ asset('contact') }}">Liên Hệ</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-block">
+            <h6 class="footer-title ptb_20 mb_20">Danh Mục</h6>
+            <ul>
+              <li><a href="{{ asset('manufacture/'.$item->manu_id) }}">{{$item->manu_name}}</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-block">
+            <h6 class="footer-title ptb_20 mb_20">Tác Giả</h6>
+            <ul>
+                <li><a>{{$item->name}}</a></li>
+                <li><a>- {{$item->masv}}</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 footer-block">
+            <h6 class="footer-title ptb_20 mb_20 mb_20">Liên Hệ</h6>
+            <ul>
+              <li>
+              Địa Chỉ :<a target="_blank" href="{{$link_map}}"><span>{{$address_site}}</a></span>
+              </li> 
+              <li>
+              <a href="tel:{{$phone_site}}">{{$phone_site}}</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="row">
+          <div class="text-center">&copy; Sản Phẩm Thuộc Về <a href="{{ url('home') }}" title="">Nhóm 4</a></div>
+        </div>
+      </div>
+    </div>
+    <!-- =====  FOOTER END  ===== -->
+</div>
+<a id="scrollup"><i class="far fa-arrow-alt-circle-up"></i></i></a>
+<script src="../frontend/js/jQuery_v3.1.1.min.js"></script>
+<script src="../frontend/js/bootstrap.min.js"></script>
+<script src="../frontend/js/custom.js"></script>
+</body>
+</html>
